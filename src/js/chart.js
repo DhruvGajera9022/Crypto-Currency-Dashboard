@@ -37,15 +37,67 @@ chart = Highcharts.stockChart("container", {
 
     plotOptions: {
         candlestick: {
-            color: "pink",
+            color: "red",
             lineColor: "red",
-            upColor: "lightgreen",
+            upColor: "green",
             upLineColor: "green",
         },
     },
 
     rangeSelector: {
-        selected: 1,
+        selected: 100,
+        buttons: [
+            {
+                type: 'minute',
+                count: 1,
+                text: '1m',
+            },
+            {
+                type: 'minute',
+                count: 5,
+                text: '5m',
+            },
+            {
+                type: 'minute',
+                count: 30,
+                text: '30m',
+            },
+            {
+                type: 'hour',
+                count: 10,
+                text: '1H',
+            },
+            {
+                type: 'day',
+                count: 100,
+                text: '1D',
+            },
+            {
+                type: 'all',
+                text: 'All',
+            },
+        ]
+    },
+
+    navigator: {
+        enabled: true,
+    },
+
+    scrollbar: {
+        enabled: true,
+    },
+
+    tooltip: {
+        split: true,
+        valueDecimals: 2,
+    },
+
+    exporting: {
+        enabled: true,
+    },
+
+    accessibility: {
+        enabled: true,
     },
 
     series: [
@@ -53,6 +105,9 @@ chart = Highcharts.stockChart("container", {
             type: "candlestick",
             name: "BTC/USDT",
             data: data,
+            tooltip: {
+                valueDecimals: 2,
+            },
         },
     ],
 });
