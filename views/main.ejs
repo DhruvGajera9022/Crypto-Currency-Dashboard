@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cryptocurrency Dashboard</title>
+    <%- include("./includes/head.ejs") %>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center my-4">Cryptocurrency Dashboard</h1>
+      <div class="table-container">
+        <table
+          class="table table-hover table-bordered text-center"
+          id="mainTable"
+        >
+          <thead>
+            <tr>
+              <th scope="col">Currency</th>
+              <th scope="col">Price</th>
+              <th scope="col">Percentage</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody id="currencyTable" class="tBody">
+            <!-- Dynamic Rows Here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="footer">
+      <p>
+        &copy; 2024 CryptoTracker. All rights reserved. |
+        <a href="#">Privacy Policy</a>
+      </p>
+    </div>
+    <%- include("./includes/script.ejs") %>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
