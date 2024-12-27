@@ -9,74 +9,36 @@ const smaData = [];
 const tableBody = document.querySelector("#price-table tbody");
 let tempData = [];
 
-const chart = Highcharts.chart("container", {
+const chart = Highcharts.stockChart("chartContainer", {
     chart: {
-        type: "line",
-        zoomType: "x",
-        backgroundColor: "#f9f9f9",
+        events: {
+            load: function () {
+                this.series[0].setData([]);
+                this.series[1].setData([]);
+            },
+        },
+    },
+    rangeSelector: {
+        selected: 1,
     },
     title: {
-        text: `Real-time ${title.value}/USDT Price with SMA`,
-        style: {
-            color: "#333",
-            fontSize: "18px",
-            fontWeight: "bold",
-        },
-    },
-    xAxis: {
-        type: "datetime",
-        gridLineWidth: 1,
-        lineColor: "#ddd",
-        tickColor: "#ddd",
-        title: {
-            text: "Time",
-        },
-    },
-    yAxis: {
-        title: {
-            text: "Price (USDT)",
-        },
-        gridLineWidth: 1,
-        lineColor: "#ddd",
-        tickColor: "#ddd",
-    },
-    tooltip: {
-        shared: true,
-        valuePrefix: "$",
-        backgroundColor: "rgba(0, 0, 0, 0.8)",
-        borderRadius: 5,
-        style: {
-            color: "#fff",
-            fontWeight: "bold",
-        },
-    },
-    plotOptions: {
-        line: {
-            marker: {
-                enabled: false,
-            },
-            lineWidth: 3,
-            states: {
-                hover: {
-                    lineWidth: 4,
-                },
-            },
-        },
+        text: `${title.value} Ticker Data`,
     },
     series: [
         {
-            name: "Price",
-            data: chartData,
-            color: "#00bfae",
-            fillOpacity: 0.1,
-            lineColor: "#00bfae",
+            name: `${title.value} Price`,
+            data: [],
+            tooltip: {
+                valueDecimals: 2,
+            },
         },
         {
             name: "SMA (15)",
-            data: smaData,
-            color: "#ff9800",
-            lineWidth: 2,
-            dashStyle: "ShortDash",
+            data: [],
+            color: "#FF0000",
+            tooltip: {
+                valueDecimals: 2,
+            },
         },
     ],
 });
