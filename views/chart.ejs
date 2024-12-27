@@ -4,127 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Live Binance <%= title%> Price</title>
-
-    <link rel="stylesheet" href="/css/chart.css" />
-    <script src="https://code.highcharts.com/stock/highstock.js"></script>
-
     <style>
-      /* General Styling */
-      body {
-        font-family: "Poppins", Arial, sans-serif;
-        background: linear-gradient(135deg, #141e30, #243b55);
-        color: #f8f9fa;
-        margin: 0;
-        padding: 0;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-      }
-
-      h1 {
-        margin: 20px 0;
-        color: #f8f9fa;
-        font-weight: 700;
-        text-align: center;
-      }
-
-      /* Chart Container */
       #container {
-        width: 95%;
-        max-width: 1000px;
         height: 400px;
-        margin-bottom: 30px;
-        border-radius: 10px;
-        background: white;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      }
-
-      /* Table Styling */
-      #price-table {
-        width: 95%;
-        max-width: 1000px;
-        margin-bottom: 20px;
-        border-collapse: collapse;
-        background: #ffffff;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      #price-table thead {
-        background: linear-gradient(135deg, #6a11cb, #2575fc);
-        color: white;
-        text-transform: uppercase;
-      }
-
-      #price-table th,
-      #price-table td {
-        padding: 12px 15px;
-        text-align: center;
-      }
-
-      #price-table tbody tr:nth-child(even) {
-        background: #f2f2f2;
-      }
-
-      #price-table tbody tr:hover {
-        background: rgba(37, 117, 252, 0.1);
-        transition: background-color 0.3s ease;
-      }
-
-      #price-table tbody td {
-        border-bottom: 1px solid #ddd;
-        font-size: 0.95rem;
-      }
-
-      #price-table tbody tr:last-child td {
-        border-bottom: none;
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 1.5rem;
-        }
-
-        #container {
-          height: 300px;
-        }
-
-        #price-table th,
-        #price-table td {
-          padding: 8px 10px;
-        }
-
-        #price-table {
-          font-size: 0.85rem;
-        }
+        min-width: 600px;
       }
     </style>
   </head>
   <body>
     <h1>Real-time <%= title %> Price with SMA</h1>
     <input type="hidden" id="title" value="<%= title %>" />
-    <div id="chartContainer" style="height: 400px; width: 1000px"></div>
-    <table id="price-table">
-      <thead>
-        <tr>
-          <th>Time</th>
-          <th>Price (USDT)</th>
-          <th>Open Price (USDT)</th>
-          <th>High Price (USDT)</th>
-          <th>Low Price (USDT)</th>
-          <th>Price Change (USDT)</th>
-          <th>Percent Change (%)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Data rows will be dynamically populated here -->
-      </tbody>
-    </table>
+    <div id="container"></div>
+
     <input id="currencyCoin" value="<%= currencyCoin %>" type="hidden" />
+
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
     <script src="/js/chart.js"></script>
   </body>
 </html>

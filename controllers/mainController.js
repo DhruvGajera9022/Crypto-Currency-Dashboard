@@ -6,7 +6,7 @@ const chartPage = async (req, res) => {
     const currency = req.params.currency;
     let currencyCoin, title;
 
-    currencyCoin = currency.toLowerCase() + '@ticker';
+    currencyCoin = currency;
     title = currency;
 
     res.render("chart", {
