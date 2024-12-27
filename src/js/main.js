@@ -1,4 +1,5 @@
 const currencyTable = document.getElementById("currencyTable");
+const searchInput = document.getElementById("searchInput");
 
 const socket = new WebSocket("wss://stream.binance.com:9443/ws/!ticker@arr");
 
@@ -42,3 +43,20 @@ socket.onmessage = (event) => {
         }
     });
 };
+
+searchInput.addEventListener("input", () => {
+    const filter = searchInput.value.toLowerCase();
+    const rows = currencyTable.getElementsByTagName("tr");
+
+    Array.from(rows).forEach((row) => {
+        const currencyCell = row.getElementsByTagName("td")[0];
+        if (currencyCell) {
+            const currencyName = currencyCell.textContent || currencyCell.innerText;
+            if (currencyName.toLowerCase().includes(filter)) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        }
+    });
+});
