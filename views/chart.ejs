@@ -8,14 +8,16 @@
     <link rel="stylesheet" href="/css/chart.css" />
   </head>
   <body>
-    <%- include("./includes/navbar.ejs") %> <%-
-    include("./includes/bottom_bar.ejs") %>
+    <%- include("./includes/navbar.ejs") %>
     <input type="hidden" id="title" value="<%= title %>" />
     <div class="parentContainer">
       <div class="leftContainer">
         <h4>Order Book</h4>
       </div>
       <div class="chartContainer">
+        <div class="chartHeader">
+          <h4>Chart</h4>
+        </div>
         <div id="container"></div>
       </div>
       <div class="rightContainer">
@@ -25,7 +27,8 @@
 
     <input id="currencyCoin" value="<%= currencyCoin %>" type="hidden" />
 
-    <%- include("./includes/script.ejs") %>
+    <%- include("./includes/bottom_bar.ejs") %> <%-
+    include("./includes/script.ejs") %>
     <script src="/js/chart.js"></script>
   </body>
 </html>

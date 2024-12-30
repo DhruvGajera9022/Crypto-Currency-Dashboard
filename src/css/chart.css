@@ -1,7 +1,12 @@
+body {
+  background-color: #212529;
+}
+
 .parentContainer {
   display: flex;
   height: 85vh;
   background-color: black;
+  margin-bottom: 1px;
 }
 
 .leftContainer {
@@ -9,12 +14,18 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  flex: 0 0 300px;
+  flex: 0 0 350px;
   background-color: #212529;
   padding: 10px;
   color: white;
   margin: 5px;
   border-radius: 10px;
+}
+
+.leftContainer h4 {
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
 }
 
 .chartContainer {
@@ -25,6 +36,14 @@
   background-color: #212529;
   margin: 5px;
   border-radius: 10px;
+  color: white;
+  flex-direction: column;
+}
+
+.chartHeader {
+  margin: 10px;
+  display: flex;
+  align-items: flex-start;
 }
 
 #container {
@@ -39,11 +58,17 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-end;
-  flex: 0 0 300px;
+  align-items: flex-start;
+  flex: 0 0 350px;
   background-color: #212529;
   padding: 10px;
   color: white;
   margin: 5px;
   border-radius: 10px;
+}
+
+.rightContainer h4 {
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
 }
