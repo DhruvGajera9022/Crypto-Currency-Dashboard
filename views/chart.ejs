@@ -3,21 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Live Binance <%= title%> Price</title>
+    <title id="mainTitle"></title>
     <%- include("./includes/head.ejs") %>
     <link rel="stylesheet" href="/css/chart.css" />
   </head>
   <body>
-    <%- include("./includes/navbar.ejs") %>
-
-    <h1>Real-time <%= title %> Price with SMA</h1>
+    <%- include("./includes/navbar.ejs") %> <%-
+    include("./includes/bottom_bar.ejs") %>
     <input type="hidden" id="title" value="<%= title %>" />
-    <div id="container"></div>
+    <div class="parentContainer">
+      <div class="leftContainer">
+        <h4>Order Book</h4>
+      </div>
+      <div class="chartContainer">
+        <div id="container"></div>
+      </div>
+      <div class="rightContainer">
+        <h4>Right Container</h4>
+      </div>
+    </div>
 
     <input id="currencyCoin" value="<%= currencyCoin %>" type="hidden" />
 
-    <%- include("./includes/bottom_bar.ejs") %> <%-
-    include("./includes/script.ejs") %>
+    <%- include("./includes/script.ejs") %>
     <script src="/js/chart.js"></script>
   </body>
 </html>

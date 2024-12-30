@@ -1,4 +1,49 @@
+.parentContainer {
+  display: flex;
+  height: 85vh;
+  background-color: black;
+}
+
+.leftContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 0 0 300px;
+  background-color: #212529;
+  padding: 10px;
+  color: white;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.chartContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  background-color: #212529;
+  margin: 5px;
+  border-radius: 10px;
+}
+
 #container {
-  height: 400px;
-  min-width: 600px;
+  flex: 0 1 auto;
+  width: 95%;
+  height: 95%;
+  background-color: #212529;
+  border-radius: 10px;
+}
+
+.rightContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex: 0 0 300px;
+  background-color: #212529;
+  padding: 10px;
+  color: white;
+  margin: 5px;
+  border-radius: 10px;
 }
