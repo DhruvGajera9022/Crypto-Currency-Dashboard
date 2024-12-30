@@ -45,7 +45,7 @@ chart = Highcharts.stockChart("container", {
     },
 
     rangeSelector: {
-        selected: 100,
+        selected: 5,
         buttons: [
             {
                 type: 'minute',
@@ -78,6 +78,7 @@ chart = Highcharts.stockChart("container", {
             },
         ]
     },
+
 
     navigator: {
         enabled: true,

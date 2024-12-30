@@ -4,22 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Live Binance <%= title%> Price</title>
-    <style>
-      #container {
-        height: 400px;
-        min-width: 600px;
-      }
-    </style>
+    <%- include("./includes/head.ejs") %>
+    <link rel="stylesheet" href="/css/chart.css" />
   </head>
   <body>
+    <%- include("./includes/navbar.ejs") %>
+
     <h1>Real-time <%= title %> Price with SMA</h1>
     <input type="hidden" id="title" value="<%= title %>" />
     <div id="container"></div>
 
     <input id="currencyCoin" value="<%= currencyCoin %>" type="hidden" />
 
-    <script src="https://code.highcharts.com/stock/highstock.js"></script>
-    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <%- include("./includes/bottom_bar.ejs") %> <%-
+    include("./includes/script.ejs") %>
     <script src="/js/chart.js"></script>
   </body>
 </html>

@@ -1,0 +1,54 @@
+<style>
+  .navbar-custom {
+    background-color: #212529;
+    color: white;
+    padding: 10px 0;
+  }
+  .navbar-custom a {
+    color: #f8c146;
+    text-decoration: none;
+  }
+  .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .change {
+    color: #e74c3c;
+  }
+  .volume,
+  .high-low {
+    color: #a3a3a3;
+  }
+  .tags {
+    color: #f8c146;
+  }
+</style>
+<body>
+  <!-- Bottom Navbar -->
+  <nav class="navbar fixed-bottom navbar-custom">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-between w-100">
+        <!-- Left Section: BNB/USDT Price -->
+        <div>
+          <span class="price">BNB/USDT $696.61</span>
+        </div>
+
+        <!-- Right Section: Stats and Tags -->
+        <div class="d-flex align-items-center">
+          <div class="me-3">
+            <span class="change">-17.06 (-2.39%)</span>
+          </div>
+          <div class="me-3">
+            <span class="volume">24h Volume: $176,124,455.81</span>
+          </div>
+          <div class="me-3">
+            <span class="high-low">24h High: $717.45 | 24h Low: $690.00</span>
+          </div>
+          <div>
+            <span class="tags">Layer 1 / Layer 2 | BNB Chain</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</body>
