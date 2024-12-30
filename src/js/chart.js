@@ -2,9 +2,16 @@ const currencyCoin = document.getElementById("currencyCoin");
 const title = document.getElementById("title");
 const mainTitle = document.getElementById("mainTitle");
 const orderBookBody = document.getElementById("orderBookBody");
+const bottomCurrencyTitle = document.getElementById("bottomCurrencyTitle");
 
 let data = [];
 let chart;
+
+const topCurrency = title.value.slice(0, 3);
+const bottomCurrency = title.value.slice(3);
+const fixedTitle = `${topCurrency}/${bottomCurrency}`
+
+bottomCurrencyTitle.innerText = fixedTitle;
 
 setInterval(async () => {
     const response = await fetch(
@@ -19,12 +26,12 @@ setInterval(async () => {
         +item[2],
         +item[3],
         +item[4],
-        mainTitle.innerText = +item[4] + " | " + title.value,
+        mainTitle.innerText = +item[4] + " | " + `${topCurrency} ${bottomCurrency}`,
         +item[9]
     ]);
 
     data = newData;
-    const last20Rows = data.slice(-12).reverse();
+    const last20Rows = data.slice(-13).reverse();
     orderBookBody.innerHTML = "";
     let previousPrice = null;
 
@@ -68,7 +75,7 @@ setInterval(async () => {
 
 chart = Highcharts.stockChart("container", {
     chart: {
-        backgroundColor: "#212529",
+        backgroundColor: "#181a20",
         style: {
             color: "#FFFFFF",
         },
