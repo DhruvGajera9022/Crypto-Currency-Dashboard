@@ -1,6 +1,7 @@
 const currencyCoin = document.getElementById("currencyCoin");
 const title = document.getElementById("title");
 const mainTitle = document.getElementById("mainTitle");
+const orderBookBody = document.getElementById("orderBookBody");
 
 let data = [];
 let chart;
@@ -18,15 +19,52 @@ setInterval(async () => {
         +item[2],
         +item[3],
         +item[4],
-        mainTitle.innerText = +item[4] + " | " + title.value
+        mainTitle.innerText = +item[4] + " | " + title.value,
+        +item[9]
     ]);
 
     data = newData;
+    const last20Rows = data.slice(-12).reverse();
+    orderBookBody.innerHTML = "";
+    let previousPrice = null;
+
+    last20Rows.forEach((item) => {
+        const price = item[4];
+        const amount = item[6];
+        const total = price * amount;
+
+        const row = document.createElement("tr");
+
+        const isIncrease = previousPrice !== null && price > previousPrice;
+        const isDecrease = previousPrice !== null && price < previousPrice;
+
+        const priceCell = document.createElement("td");
+        priceCell.innerText = price.toFixed(2);
+        priceCell.style.color = isIncrease ? "green" : "red";
+
+
+        const amountCell = document.createElement("td");
+        amountCell.innerText = amount.toFixed(6);
+        amountCell.style.color = "white";
+
+        const totalCell = document.createElement("td");
+        totalCell.innerText = total.toFixed(2);
+        totalCell.style.color = "white";
+
+        row.appendChild(priceCell);
+        row.appendChild(amountCell);
+        row.appendChild(totalCell);
+
+        orderBookBody.appendChild(row);
+
+        previousPrice = price;
+    });
 
     if (chart) {
         chart.series[0].setData(data, true);
     }
 }, 1000);
+
 
 chart = Highcharts.stockChart("container", {
     chart: {
