@@ -1,0 +1,60 @@
+.navbar-custom {
+  color: white;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 10px;
+  background-color: #181a20;
+}
+
+.navbar-custom a {
+  color: #f8c146;
+  text-decoration: none;
+}
+
+/* Price styling */
+.price-container {
+  flex: 1;
+  text-align: left;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Right Section - Stats and Tags */
+.right-section {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.change {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.volume,
+.high-low {
+  color: #a3a3a3;
+}
+
+.tags {
+  color: #f8c146;
+}
+
+/* Center section styling */
+.middle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.middle-container p {
+  margin: 0;
+  font-size: 1rem;
+  color: #a3a3a3;
+}

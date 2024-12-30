@@ -60,25 +60,6 @@ body {
   border-radius: 10px;
 }
 
-.rightContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex: 0 0 350px;
-  background-color: #181a20;
-  padding: 10px;
-  color: white;
-  margin: 5px;
-  border-radius: 10px;
-}
-
-.rightContainer h4 {
-  margin-bottom: 10px;
-  border-bottom: 2px solid #ccc;
-  padding-bottom: 5px;
-}
-
 #orderBook {
   color: #5e6673;
 }
