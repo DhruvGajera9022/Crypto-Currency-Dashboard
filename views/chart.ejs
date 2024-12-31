@@ -12,12 +12,50 @@
 
     <div class="parentContainer">
       <div class="mainContent">
-        <div class="leftContainer">
-          <h4>Buy & Sell</h4>
-        </div>
-
         <div class="chartContainer">
           <div id="trading-view-chart"></div>
+        </div>
+      </div>
+      <div class="buyAndSellContainer">
+        <div class="buyContainer">
+          <p class="buySellTitle">
+            <span
+              style="
+                color: green;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+              >Buy</span
+            >
+          </p>
+          <form action="">
+            <div class="input-container">
+              <input type="text" class="input-box" placeholder="Price" />
+              <input type="text" class="input-box" placeholder="Amount" />
+              <input type="submit" class="buyButton" value="Buy" />
+            </div>
+          </form>
+        </div>
+        <div class="sellContainer">
+          <p class="buySellTitle">
+            <span
+              style="
+                color: red;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+              >Sell</span
+            >
+          </p>
+          <form action="">
+            <div class="input-container">
+              <input type="text" class="input-box" placeholder="Price" />
+              <input type="text" class="input-box" placeholder="Amount" />
+              <input type="submit" class="sellButton" value="Sell" />
+            </div>
+          </form>
         </div>
       </div>
     </div>
