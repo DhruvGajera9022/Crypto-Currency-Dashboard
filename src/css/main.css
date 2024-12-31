@@ -148,18 +148,6 @@ body {
   font-weight: bold;
 }
 
-.price-change.positive {
-  color: #32cd32;
-}
-
-.price-change.negative {
-  color: #ff6347;
-}
-
-.price-change.neutral {
-  color: #bbb;
-}
-
 .trend {
   font-size: 0.9rem;
   color: #ccc;

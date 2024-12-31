@@ -29,20 +29,20 @@
       <div class="crypto-cards">
         <div class="card">
           <h3>Bitcoin (BTC)</h3>
-          <p>$28,000</p>
-          <span class="price-change positive">+3.5%</span>
+          <p id="btcCoin"></p>
+          <span class="price-change positive" id="btcPer"></span>
           <div class="trend">↑ 1.2% in the last hour</div>
         </div>
         <div class="card">
           <h3>Ethereum (ETH)</h3>
-          <p>$1,850</p>
-          <span class="price-change negative">-2.1%</span>
+          <p id="ethCoin"></p>
+          <span class="price-change negative" id="ethPer"></span>
           <div class="trend">↓ 0.5% in the last hour</div>
         </div>
         <div class="card">
           <h3>Ripple (XRP)</h3>
-          <p>$0.75</p>
-          <span class="price-change neutral">0.0%</span>
+          <p id="xrpCoin"></p>
+          <span class="price-change neutral" id="xrpPer"></span>
           <div class="trend">No significant change</div>
         </div>
       </div>
@@ -50,21 +50,21 @@
 
     <!-- Trending Coins Section -->
     <section class="trending-coins">
-      <h2 class="section-title">Trending Coins</h2>
+      <h2 class="section-title">New Listing</h2>
       <div class="trending-cards">
         <!-- Example of a trending coin card -->
         <div class="card">
-          <h3>Bitcoin (BTC)</h3>
+          <h3>Usual (USUAL)</h3>
           <p>$28,000</p>
           <span class="price-change positive">+3.5%</span>
         </div>
         <div class="card">
-          <h3>Ethereum (ETH)</h3>
+          <h3>Pengu (PENGU)</h3>
           <p>$1,850</p>
           <span class="price-change negative">-2.1%</span>
         </div>
         <div class="card">
-          <h3>Ripple (XRP)</h3>
+          <h3>Vana (VANA)</h3>
           <p>$0.75</p>
           <span class="price-change neutral">0.0%</span>
         </div>
@@ -126,5 +126,6 @@
       </div>
     </footer>
     <%- include("./includes/script.ejs") %>
+    <script src="/js/main.js"></script>
   </body>
 </html>

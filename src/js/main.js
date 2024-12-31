@@ -1,7 +1,41 @@
 const currencyTable = document.getElementById("currencyTable");
 const searchInput = document.getElementById("searchInput");
 
+const btcCoin = document.getElementById("btcCoin");
+const ethCoin = document.getElementById("ethCoin");
+const xrpCoin = document.getElementById("xrpCoin");
+
+const btcPer = document.getElementById("btcPer");
+const ethPer = document.getElementById("ethPer");
+const xrpPer = document.getElementById("xrpPer");
+
 const socket = new WebSocket("wss://stream.binance.com:9443/ws/!ticker@arr");
+
+// WebSocket message handler
+socket.onmessage = (event) => {
+    const allData = JSON.parse(event.data);
+
+    allData.map(data => {
+        switch (data.s) {
+            case "BTCUSDT":
+                btcCoin.innerText = "$" + +data.c;
+                btcPer.innerText = data.P;
+                data.P < 0 ? (btcPer.style.color = "red") : (btcPer.style.color = "green");
+                break;
+            case "ETHUSDT":
+                ethCoin.innerText = "$" + +data.c;
+                ethPer.innerText = data.P;
+                data.P < 0 ? (ethPer.style.color = "red") : (ethPer.style.color = "green");
+                break;
+            case "XRPUSDT":
+                xrpCoin.innerText = "$" + +data.c;
+                xrpPer.innerText = data.P;
+                data.P < 0 ? (xrpPer.style.color = "red") : (xrpPer.style.color = "green");
+                break;
+        }
+    });
+
+};
 
 // Function to filter data
 const filterTable = (filter) => {
@@ -15,48 +49,3 @@ const filterTable = (filter) => {
         }
     });
 };
-
-// WebSocket message handler
-socket.onmessage = (event) => {
-    const data = JSON.parse(event.data);
-    const top50 = data
-        .filter((ticker) => ticker.s)
-        .sort((a, b) => parseFloat(b.c) - parseFloat(a.c))
-        .slice(0, 100); // Limit to 100 results (can adjust)
-
-    top50.forEach((ticker) => {
-        const name = ticker.s;
-        const getChar = (s, n) => s.slice(-n);
-        if (getChar(name, 4) === "USDT") {  // Filter only USDT pairs
-            const currentPrice = parseFloat(ticker.c);
-            const percentage = parseFloat(ticker.P);
-
-            const percentageColor = percentage > 0 ? "green" : percentage < 0 ? "red" : "black";
-
-            let existingRow = document.getElementById(name);
-            if (existingRow) {
-                // Update the existing row
-                existingRow.querySelector(".percentage").textContent = percentage.toFixed(2);
-                existingRow.querySelector(".percentage").style.color = percentageColor;
-                existingRow.querySelector(".price").textContent = currentPrice.toFixed(2);
-            } else {
-                // Create a new row
-                const newRow = document.createElement("tr");
-                newRow.id = name;
-                newRow.innerHTML = `
-          <td>${name}</td>
-          <td class="price">${currentPrice.toFixed(2)}</td>
-          <td class="percentage" style="color: ${percentageColor}">${percentage.toFixed(2)}</td>
-          <td><a href="/trade/${name}" class="btn btn-primary"><i class="fas fa-eye"></i> View</a></td>
-        `;
-                currencyTable.appendChild(newRow);
-            }
-        }
-    });
-};
-
-// Search functionality: Listen for changes in the input field
-searchInput.addEventListener("input", () => {
-    const filter = searchInput.value.toLowerCase();
-    filterTable(filter);
-});
