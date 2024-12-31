@@ -46,12 +46,6 @@ body {
   flex-direction: column;
 }
 
-.chartHeader {
-  margin: 10px;
-  display: flex;
-  align-items: flex-start;
-}
-
 #container {
   flex: 0 1 auto;
   width: 95%;
@@ -62,4 +56,11 @@ body {
 
 #orderBook {
   color: #5e6673;
+}
+
+#trading-view-chart {
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
 }
