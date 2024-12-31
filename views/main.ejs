@@ -3,47 +3,128 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cryptocurrency Dashboard</title>
+    <title>Binance-Inspired Crypto Dashboard</title>
     <%- include("./includes/head.ejs") %>
+    <link rel="stylesheet" href="/css/main.css" />
   </head>
   <body>
-    <div class="container">
-      <h1 class="text-center my-4">Cryptocurrency Dashboard</h1>
-      <div class="search-container d-flex justify-content-center mb-3">
-        <input
-          type="text"
-          id="searchInput"
-          class="form-control"
-          placeholder="Search for a cryptocurrency..."
-          style="width: 700px"
-        />
+    <%- include("./includes/navbar.ejs") %>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <h1>Track Your Cryptocurrency Portfolio</h1>
+          <p>
+            Stay updated with real-time prices, trends, and market insights.
+          </p>
+          <a href="#" class="cta-btn">Get Started</a>
+        </div>
       </div>
-      <div class="table-container">
-        <table
-          class="table table-hover table-bordered text-center"
-          id="mainTable"
-        >
-          <thead>
-            <tr>
-              <th scope="col">Currency</th>
-              <th scope="col">Price</th>
-              <th scope="col">Percentage</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody id="currencyTable" class="tBody">
-            <!-- Dynamic Rows Here -->
-          </tbody>
-        </table>
+    </section>
+
+    <!-- Main Currencies Section -->
+    <section class="main-currencies">
+      <h2 class="section-title">Top Currencies</h2>
+      <div class="crypto-cards">
+        <div class="card">
+          <h3>Bitcoin (BTC)</h3>
+          <p>$28,000</p>
+          <span class="price-change positive">+3.5%</span>
+          <div class="trend">↑ 1.2% in the last hour</div>
+        </div>
+        <div class="card">
+          <h3>Ethereum (ETH)</h3>
+          <p>$1,850</p>
+          <span class="price-change negative">-2.1%</span>
+          <div class="trend">↓ 0.5% in the last hour</div>
+        </div>
+        <div class="card">
+          <h3>Ripple (XRP)</h3>
+          <p>$0.75</p>
+          <span class="price-change neutral">0.0%</span>
+          <div class="trend">No significant change</div>
+        </div>
       </div>
-    </div>
-    <div class="footer">
-      <p>
-        &copy; 2024 CryptoTracker. All rights reserved. |
-        <a href="#">Privacy Policy</a>
-      </p>
-    </div>
+    </section>
+
+    <!-- Trending Coins Section -->
+    <section class="trending-coins">
+      <h2 class="section-title">Trending Coins</h2>
+      <div class="trending-cards">
+        <!-- Example of a trending coin card -->
+        <div class="card">
+          <h3>Bitcoin (BTC)</h3>
+          <p>$28,000</p>
+          <span class="price-change positive">+3.5%</span>
+        </div>
+        <div class="card">
+          <h3>Ethereum (ETH)</h3>
+          <p>$1,850</p>
+          <span class="price-change negative">-2.1%</span>
+        </div>
+        <div class="card">
+          <h3>Ripple (XRP)</h3>
+          <p>$0.75</p>
+          <span class="price-change neutral">0.0%</span>
+        </div>
+        <!-- Add more trending coins as necessary -->
+      </div>
+    </section>
+
+    <!-- Currency Table Section -->
+    <section class="currency-table">
+      <h2 class="section-title">All Currencies</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Currency</th>
+            <th>Price</th>
+            <th>24h Change</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Litecoin (LTC)</td>
+            <td>$200</td>
+            <td class="positive">+1.5%</td>
+            <td><a href="#" class="btn">View</a></td>
+          </tr>
+          <tr>
+            <td>Cardano (ADA)</td>
+            <td>$1.10</td>
+            <td class="negative">-0.8%</td>
+            <td><a href="#" class="btn">View</a></td>
+          </tr>
+          <tr>
+            <td>Polkadot (DOT)</td>
+            <td>$10.50</td>
+            <td class="neutral">0.0%</td>
+            <td><a href="#" class="btn">View</a></td>
+          </tr>
+          <tr>
+            <td>Dogecoin (DOGE)</td>
+            <td>$0.30</td>
+            <td class="positive">+4.8%</td>
+            <td><a href="#" class="btn">View</a></td>
+          </tr>
+          <!-- Add more rows as needed -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2024 CryptoTracker. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">Facebook</a>
+          <a href="#" class="social-link">Twitter</a>
+          <a href="#" class="social-link">Instagram</a>
+        </div>
+      </div>
+    </footer>
     <%- include("./includes/script.ejs") %>
-    <script src="/js/main.js"></script>
   </body>
 </html>
