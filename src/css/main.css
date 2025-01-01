@@ -191,57 +191,98 @@ body {
 /* Currency Table Section */
 .currency-table {
   margin-top: 50px;
-  padding: 20px;
-  background-color: #1f1f1f; /* Dark background for the table section */
-  border-radius: 10px;
+  padding: 40px 30px;
+  background-color: #18222c; /* Darker background for a more polished look */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
   animation: fadeInUp 1s ease-out;
+}
+
+.section-title {
+  color: #ecf0f1; /* Light title text color */
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
-  color: #e0e0e0; /* Light text color for the table */
+  color: #ecf0f1; /* Light text color for better readability */
+  border-radius: 10px;
 }
 
 .table th,
 .table td {
-  padding: 12px;
+  padding: 16px;
   text-align: left;
+  font-size: 14px;
 }
 
 .table th {
-  background-color: #333; /* Dark header for the table */
+  background-color: #1a2329; /* Darker background for the header */
   font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .table td {
-  border-top: 1px solid #444; /* Slight border for separation */
+  background-color: #24292f;
+  border-top: 1px solid #7f8c8d; /* Soft border line for rows */
+  transition: background-color 0.3s ease;
+}
+
+.table tr:hover td {
+  background-color: #34424d; /* Lighter highlight on row hover */
 }
 
 .table .positive {
-  color: #32cd32; /* Green for positive values */
+  color: #2ecc71; /* Green for positive values */
 }
 
 .table .negative {
-  color: #ff6347; /* Red for negative values */
+  color: #e74c3c; /* Red for negative values */
 }
 
 .table .neutral {
-  color: #bbb; /* Grey for neutral values */
+  color: #bdc3c7; /* Grey for neutral values */
 }
 
 .table .btn {
-  background-color: #f4b400; /* Yellow for the 'View' button */
-  padding: 6px 12px;
+  background-color: #f39c12; /* Bright yellow-orange for 'View' button */
+  padding: 8px 14px;
   color: white;
-  border-radius: 5px;
+  border-radius: 8px;
   text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
 }
 
 .table .btn:hover {
-  background-color: #d69500; /* Darker yellow on hover */
-  transform: scale(1.05); /* Slight zoom effect */
+  background-color: #e67e22; /* Darker orange on hover */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.table .btn:focus {
+  outline: none; /* Remove focus outline */
+}
+
+.table .btn:active {
+  transform: scale(1.02); /* Subtle shrink effect on click */
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer */
