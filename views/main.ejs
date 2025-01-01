@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Binance-Inspired Crypto Dashboard</title>
+    <title>Crypto Dashboard</title>
     <%- include("./includes/head.ejs") %>
     <link rel="stylesheet" href="/css/main.css" />
   </head>
@@ -55,18 +55,18 @@
         <!-- Example of a trending coin card -->
         <div class="card">
           <h3>Usual (USUAL)</h3>
-          <p>$28,000</p>
-          <span class="price-change positive">+3.5%</span>
+          <p id="usualCoin"></p>
+          <span class="price-change positive" id="usualPer">+3.5%</span>
         </div>
         <div class="card">
           <h3>Pengu (PENGU)</h3>
-          <p>$1,850</p>
-          <span class="price-change negative">-2.1%</span>
+          <p id="penguCoin"></p>
+          <span class="price-change negative" id="penguPer">-2.1%</span>
         </div>
         <div class="card">
           <h3>Vana (VANA)</h3>
-          <p>$0.75</p>
-          <span class="price-change neutral">0.0%</span>
+          <p id="vanaCoin"></p>
+          <span class="price-change neutral" id="vanaPer">0.0%</span>
         </div>
         <!-- Add more trending coins as necessary -->
       </div>
@@ -78,37 +78,13 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Currency</th>
-            <th>Price</th>
-            <th>24h Change</th>
-            <th>Action</th>
+            <th style="width: 30%">Currency</th>
+            <th style="width: 30%">Price</th>
+            <th style="width: 30%">24h Change</th>
+            <th style="width: 10%">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Litecoin (LTC)</td>
-            <td>$200</td>
-            <td class="positive">+1.5%</td>
-            <td><a href="#" class="btn">View</a></td>
-          </tr>
-          <tr>
-            <td>Cardano (ADA)</td>
-            <td>$1.10</td>
-            <td class="negative">-0.8%</td>
-            <td><a href="#" class="btn">View</a></td>
-          </tr>
-          <tr>
-            <td>Polkadot (DOT)</td>
-            <td>$10.50</td>
-            <td class="neutral">0.0%</td>
-            <td><a href="#" class="btn">View</a></td>
-          </tr>
-          <tr>
-            <td>Dogecoin (DOGE)</td>
-            <td>$0.30</td>
-            <td class="positive">+4.8%</td>
-            <td><a href="#" class="btn">View</a></td>
-          </tr>
           <!-- Add more rows as needed -->
         </tbody>
       </table>
@@ -125,6 +101,7 @@
         </div>
       </div>
     </footer>
+
     <%- include("./includes/script.ejs") %>
     <script src="/js/main.js"></script>
   </body>
