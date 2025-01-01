@@ -21,41 +21,60 @@ const vanaPer = document.getElementById("vanaPer");
 // Select the table body element
 const tableBody = document.querySelector(".currency-table .table tbody");
 
+let currencyNames = [];
+
 // Websocket for the binance
 const socket = new WebSocket("wss://stream.binance.com:9443/ws/!ticker@arr");
 
-// display data in the table
-const updateTable = (data) => {
-    const sortedData = data.sort((a, b) => b.q - a.q);
 
-    const topCurrencies = sortedData.slice(0, 20);
+// get currency from database
+const getData = async () => {
+    try {
+        const res = await fetch("http://localhost:8010/api/currency");
+        const data = await res.json();
+        currencyNames = data.data.map((currency) => currency.name);
 
+        createTableRows(currencyNames);
+    } catch (error) {
+        console.error("Error fetching currency data:", error);
+    }
+}
+
+// Create table rows for each currency
+const createTableRows = (names) => {
+    const tableBody = document.querySelector(".currency-table tbody");
     tableBody.innerHTML = "";
 
-    topCurrencies.forEach((currency) => {
+    names.forEach((name) => {
         const row = document.createElement("tr");
 
+        // Name column
         const nameCell = document.createElement("td");
-        nameCell.textContent = currency.s;
+        nameCell.id = `name-${name}`;
+        nameCell.textContent = name;
 
+        // Price column
         const priceCell = document.createElement("td");
-        priceCell.textContent = parseFloat(currency.c).toFixed(2);
+        priceCell.id = `price-${name}`;
 
-        const changeCell = document.createElement("td");
-        changeCell.textContent = `${parseFloat(currency.P).toFixed(2)}%`;
-        changeCell.style.color = parseFloat(currency.P) >= 0 ? "green" : "red";
+        // Percentage column
+        const percentCell = document.createElement("td");
+        percentCell.id = `percent-${name}`;
 
+        // Action column
         const actionCell = document.createElement("td");
-        const actionButton = document.createElement("button");
-        actionButton.textContent = "View";
-        actionButton.className = "action-button";
-        actionCell.appendChild(actionButton);
+        const actionLink = document.createElement("a");
+        actionLink.href = `/trade/${name}USDT`;
+        actionLink.textContent = "View";
+        actionCell.appendChild(actionLink);
 
+        // Append cells to the row
         row.appendChild(nameCell);
         row.appendChild(priceCell);
-        row.appendChild(changeCell);
+        row.appendChild(percentCell);
         row.appendChild(actionCell);
 
+        // Append row to the table body
         tableBody.appendChild(row);
     });
 };
@@ -64,7 +83,7 @@ const updateTable = (data) => {
 socket.onmessage = (event) => {
     const allData = JSON.parse(event.data);
 
-    allData.map(data => {
+    allData.map(async (data) => {
         switch (data.s) {
             case "BTCUSDT":
                 btcCoin.innerText = "$" + +data.c;
@@ -96,6 +115,21 @@ socket.onmessage = (event) => {
         }
     });
 
-    updateTable(allData);
+    allData.forEach((data) => {
+        const currencyName = data.s.replace("USDT", "");
+
+        if (currencyNames.includes(currencyName)) {
+            const priceCell = document.getElementById(`price-${currencyName}`);
+            const percentCell = document.getElementById(`percent-${currencyName}`);
+
+            if (priceCell && percentCell) {
+                priceCell.textContent = `$${(+data.c).toFixed(2)}`;
+                percentCell.textContent = `${(+data.P).toFixed(2)}%`;
+                percentCell.style.color = (+data.P) >= 0 ? "green" : "red";
+            }
+        }
+    });
 
 };
+
+getData();

@@ -1,5 +1,10 @@
+const CurrencyModel = require("../models/currency");
+
 const mainPage = async (req, res) => {
-    res.render("main");
+    const allCurrency = await CurrencyModel.findAll({});
+    res.render("main", {
+        allCurrency,
+    });
 }
 
 const chartPage = async (req, res) => {
