@@ -9,6 +9,8 @@ const topCurrency = title.value.slice(0, 3);
 const bottomCurrency = title.value.slice(3);
 const fixedTitle = `${topCurrency}/${bottomCurrency}`
 
+mainTitle.innerText = fixedTitle;
+
 
 new TradingView.widget(
     {

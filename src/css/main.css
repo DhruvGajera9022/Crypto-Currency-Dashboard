@@ -217,6 +217,7 @@ body {
 .table td {
   padding: 16px;
   text-align: left;
+  justify-content: center;
   font-size: 14px;
 }
 
@@ -271,6 +272,34 @@ body {
 }
 
 .table .btn:active {
+  transform: scale(1.02); /* Subtle shrink effect on click */
+}
+
+.table a {
+  display: inline-block;
+  background-color: #f39c12; /* Bright orange-yellow for the button */
+  padding: 8px 20px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.table a:hover {
+  background-color: #e67e22; /* Darker orange on hover */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.table a:focus {
+  outline: none; /* Remove focus outline */
+}
+
+.table a:active {
   transform: scale(1.02); /* Subtle shrink effect on click */
 }
 
