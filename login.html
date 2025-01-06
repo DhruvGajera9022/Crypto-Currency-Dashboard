@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #181a20;
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+      }
+
+      .login-container {
+        background: #181a20;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        padding: 20px 30px;
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+      }
+
+      .login-container h2 {
+        margin-bottom: 20px;
+        color: #ffffff;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #bbbbbb;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #333;
+        border-radius: 5px;
+        box-sizing: border-box;
+        background-color: #181a20;
+        color: #ffffff;
+      }
+
+      .form-group input:focus {
+        border-color: #ffc107;
+        outline: none;
+        box-shadow: 0 0 5px #ffc107;
+      }
+
+      .login-btn {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #ffc107;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .login-btn:hover {
+        background-color: #d2a213;
+      }
+
+      .google-btn {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        background-color: transparent;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .separator {
+        margin: 20px 0;
+        text-align: center;
+        position: relative;
+      }
+
+      .separator::before,
+      .separator::after {
+        content: "";
+        height: 1px;
+        width: 40%;
+        background: #333;
+        position: absolute;
+        top: 50%;
+      }
+
+      .separator::before {
+        left: 0;
+      }
+
+      .separator::after {
+        right: 0;
+      }
+
+      .separator span {
+        background: #1e1e1e;
+        padding: 0 10px;
+        color: #bbbbbb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+      <div class="separator">
+        <span>or</span>
+      </div>
+      <button class="google-btn">Sign in with Google</button>
+    </div>
+  </body>
+</html>

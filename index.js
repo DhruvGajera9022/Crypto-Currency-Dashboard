@@ -4,6 +4,7 @@ const app = express();
 
 const mainRoute = require("./routes/mainRoute");
 const currencyRoute = require("./routes/currencyRoute");
+const authRoute = require("./routes/authRoute");
 
 app.use(express.json());
 
@@ -13,6 +14,7 @@ app.use(express.static("src"));
 
 app.use("/", mainRoute);
 app.use("/", currencyRoute);
+app.use("/", authRoute);
 
 
 const port = process.env.PORT;
